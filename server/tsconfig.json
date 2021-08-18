@@ -32,5 +32,8 @@
         "/src/config/*"
       ]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
