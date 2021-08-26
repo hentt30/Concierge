@@ -1,7 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import {Title} from './styles';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../components/Navbar';
 
 class Home extends Component {
   render(): JSX.Element {
