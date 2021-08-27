@@ -12,26 +12,22 @@ export const Nav = styled.nav`
     position:sticky;
     top:0;
     z-index:10;
-
-    @media screen and (max-width: 960px) {
-        transition: 0.8s all ease;
-
-    }
 `;
 
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height:80px;
     z-index:1;
     width: 100%;
     padding: 0 24px;
-    max-width: 1900px;
+    max-width: 1300px;
 
 `;
 
 export const NavLogo = styled(LinkR)`
-    color:red;
+    color : white;
     justify-self: flex-start;
     cursor: pointer;
     font-size: 1.5rem;
@@ -81,11 +77,54 @@ export const NavLink = styled(LinkS)`
     display:flex;
     align-items: center;
     text-decoration: none;
-    padding: 0 1rem;
+    padding: 0 2rem;
     height: 100%;
     cursor:pointer;
 
-    &.active{
-        border-bottom: 3px solid #01bf71;
+    &:hover{
+        transition: 0.2s all ease;
+        border-bottom: 4px solid #01bf71;
     }
 `;
+
+export const NavBtn = styled.nav`
+display: flex;
+border-radius: 50px;
+height: 50px;
+width: 120px;
+background: #01bf71;
+justify-content: center;
+align-items: center;
+@media screen and (max-width: 768px) {
+    display:none
+}
+&:hover{
+        transition: all 0.4s ease-in-out;
+        background: #fff;
+        color: #010606;
+    }
+`;
+
+export const NavBtnLink = styled(LinkR)`
+
+    white-space: nowrap;
+    padding-left:6px;
+    color: #010606;
+    font-size: 1rem;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    text-decoration: none;
+
+
+`;
+
+export const SpotifyIcon = styled.div`
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    color: #000;
+    size:2;
+
+`;
+
