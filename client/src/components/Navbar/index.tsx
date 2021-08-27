@@ -3,13 +3,18 @@ import {FaBars} from 'react-icons/fa';
 import {FaSpotify} from 'react-icons/fa';
 import {Nav, NavbarContainer, NavLogo, MobileIcon,
   NavMenu, NavItem, NavLink, NavBtn, NavBtnLink, SpotifyIcon} from './styles';
-const Navbar: React.FC = () => {
+
+type NavBarProps ={
+    toggle(): void;
+}
+
+const Navbar: React.FC<NavBarProps> = ({toggle}) => {
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavLogo to="/"> Concierge </NavLogo>
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
@@ -25,10 +30,13 @@ const Navbar: React.FC = () => {
 
           </NavMenu>
           <NavBtn>
-            <SpotifyIcon>
-              <FaSpotify/>
-            </SpotifyIcon>
-            <NavBtnLink to="signin">Connect</NavBtnLink>
+
+            <NavBtnLink to="signin">
+              <SpotifyIcon>
+                <FaSpotify/>
+              </SpotifyIcon>
+                Connect
+            </NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

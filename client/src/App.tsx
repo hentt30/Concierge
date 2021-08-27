@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import './App.css';
 import {BrowserRouter as Router} from 'react-router-dom';
 // import Home from './pages/Home';
@@ -7,8 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 const App: React.FC = () =>{
   return (
     <Router>
-
-      <Navbar/>
+      <Home/>
     </Router>
   );
 };

@@ -12,6 +12,7 @@ export const Nav = styled.nav`
     position:sticky;
     top:0;
     z-index:10;
+    transition: all 0.2 ease;
 `;
 
 export const NavbarContainer = styled.div`
@@ -89,26 +90,22 @@ export const NavLink = styled(LinkS)`
 
 export const NavBtn = styled.nav`
 display: flex;
-border-radius: 50px;
-height: 50px;
-width: 120px;
-background: #01bf71;
-justify-content: center;
 align-items: center;
 @media screen and (max-width: 768px) {
     display:none
 }
-&:hover{
-        transition: all 0.4s ease-in-out;
-        background: #fff;
-        color: #010606;
-    }
+
 `;
 
 export const NavBtnLink = styled(LinkR)`
-
+    display: flex;
+    border-radius: 50px;
+    height: 50px;
+    width: 120px;
+    background: #01bf71;
+    justify-content: center;
+    align-items: center;
     white-space: nowrap;
-    padding-left:6px;
     color: #010606;
     font-size: 1rem;
     outline: none;
@@ -116,11 +113,18 @@ export const NavBtnLink = styled(LinkR)`
     cursor:pointer;
     text-decoration: none;
 
+    &:hover{
+        transition: all 0.4s ease-in-out;
+        background: #fff;
+        color: #010606;
+    }
+
 
 `;
 
 export const SpotifyIcon = styled.div`
     display: flex;
+    padding-right: 5px;
     align-items: center;
     cursor:pointer;
     color: #000;

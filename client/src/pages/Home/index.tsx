@@ -1,17 +1,21 @@
-import React from 'react';
-import {Component} from 'react';
-import {Title} from './styles';
+import React, {useState} from 'react';
+import Sidebar from '../../components/Sidebar';
 import NavBar from '../../components/Navbar';
 
-class Home extends Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        <NavBar/>
-        <Title>Home</Title>
-      </div>
-    );
-  }
-}
+const Home: React.FC = ()=>{
+  const [isOpen, setIsOpen] = useState<boolean>(false );
+
+  const toggle = () =>{
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div>
+      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      <NavBar toggle={toggle}/>
+    </div>
+  );
+};
+
 
 export default Home;
