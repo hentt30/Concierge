@@ -1,10 +1,18 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import Video from '../../assets/video.mp4';
+import {Button} from '../Button/styles';
 import {HeroContainer, HeroBg, VideoBg,
-  HeroContent, HeroH1, HeroP} from './styles';
+  HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowFoward
+  , ArrowRight} from './styles';
 
 const HeroSection: React.FC = () => {
+  const [hover, setHover] = useState(false);
+
+  const onHover = () =>{
+    setHover(!hover);
+  };
+
   return (
     <HeroContainer >
       <HeroBg>
@@ -15,6 +23,16 @@ const HeroSection: React.FC = () => {
         <HeroP>
         Create randomly generated spotify playlists from your favorite genre
         </HeroP>
+        <HeroBtnWrapper>
+          <Button to='signin' onMouseEnter={onHover}
+            onMouseLeave={onHover }
+            primary='true'
+            dark='true'
+          >
+                Get Started {hover ? <ArrowRight/>:<ArrowFoward/>}
+          </Button>
+
+        </HeroBtnWrapper>
       </HeroContent>
 
     </HeroContainer>
