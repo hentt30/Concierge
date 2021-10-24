@@ -6,9 +6,11 @@ import {Nav, NavbarContainer, NavLogo, MobileIcon,
 
 type NavBarProps ={
     toggle(): void;
+    loginUrl: string;
 }
 
-const Navbar: React.FC<NavBarProps> = ({toggle}) => {
+const Navbar: React.FC<NavBarProps> = ({toggle, loginUrl}) => {
+  console.log(loginUrl);
   return (
     <>
       <Nav>
@@ -37,7 +39,7 @@ const Navbar: React.FC<NavBarProps> = ({toggle}) => {
 
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to="signin">
+            <NavBtnLink to={{pathname: loginUrl}} target="_self">
               <SpotifyIcon>
                 <FaSpotify/>
               </SpotifyIcon>

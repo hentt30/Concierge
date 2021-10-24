@@ -6,8 +6,12 @@ import {HeroContainer, HeroBg, VideoBg,
   HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowFoward
   , ArrowRight} from './styles';
 
-const HeroSection: React.FC = () => {
+type HeroSectionProps ={
+    loginUrl: string;
+}
+const HeroSection: React.FC<HeroSectionProps> = ({loginUrl}) => {
   const [hover, setHover] = useState(false);
+  console.log(loginUrl);
 
   const onHover = () =>{
     setHover(!hover);
@@ -24,8 +28,10 @@ const HeroSection: React.FC = () => {
         Create randomly generated spotify playlists from your favorite genre
         </HeroP>
         <HeroBtnWrapper>
-          <Button to='signin' onMouseEnter={onHover}
-            onMouseLeave={onHover }
+          <Button to={{pathname: loginUrl}}
+            target="_blank"
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
             primary='true'
             dark='true'
           >
