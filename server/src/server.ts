@@ -5,9 +5,9 @@ import querystring from 'query-string';
 import cookieParser from 'cookie-parser';
 
 const app = express();
-const clientid = '62e49dbf7c7d4e638dcbed1b69e5794f';
-const clientsecret = '907adc18605c4904a3c4d7173ae7d0f3';
-const redirecturi = 'http://localhost:5000/logged';
+const clientid = process.env.CLIENT_ID;
+const clientsecret = process.env.CLIENT_SECRET;
+const redirecturi = process.env.REDIRECT_URI;
 
 
 /**
