@@ -9,7 +9,6 @@ import {homeObjOne,
 
 const Home: React.FC = ()=>{
   const spotifyApi = new Spotify();
-  const loginUrl = spotifyApi.getUrl();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
 
@@ -21,8 +20,8 @@ const Home: React.FC = ()=>{
   return (
     <div>
       <Sidebar isOpen={isOpen} toggle={toggle}/>
-      <NavBar toggle={toggle} loginUrl={loginUrl}/>
-      <HeroSection loginUrl={loginUrl}/>
+      <NavBar toggle={toggle} spotifyApi={spotifyApi}/>
+      <HeroSection spotifyApi={spotifyApi}/>
       <InfoSection {...homeObjOne}/>
       <InfoSection {...homeObjTwo}/>
       <InfoSection {...homeObjThree}/>

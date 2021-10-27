@@ -1,16 +1,16 @@
 import React from 'react';
 import {FaBars} from 'react-icons/fa';
+import {ISpotify} from '../../services/spotify';
 import {FaSpotify} from 'react-icons/fa';
 import {Nav, NavbarContainer, NavLogo, MobileIcon,
   NavMenu, NavItem, NavLink, NavBtn, NavBtnLink, SpotifyIcon} from './styles';
 
 type NavBarProps ={
     toggle(): void;
-    loginUrl: string;
+    spotifyApi: ISpotify;
 }
 
-const Navbar: React.FC<NavBarProps> = ({toggle, loginUrl}) => {
-  console.log(loginUrl);
+const Navbar: React.FC<NavBarProps> = ({toggle, spotifyApi}) => {
   return (
     <>
       <Nav>
@@ -39,7 +39,10 @@ const Navbar: React.FC<NavBarProps> = ({toggle, loginUrl}) => {
 
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to={{pathname: loginUrl}} target="_self">
+            <NavBtnLink onClick ={()=>{
+              spotifyApi.login();
+            }}
+            target="_blank">
               <SpotifyIcon>
                 <FaSpotify/>
               </SpotifyIcon>

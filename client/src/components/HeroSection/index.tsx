@@ -2,16 +2,17 @@
 import React, {useState} from 'react';
 import Video from '../../assets/video.mp4';
 import {Button} from '../Button/styles';
+import {ISpotify} from '../../services/spotify';
 import {HeroContainer, HeroBg, VideoBg,
   HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowFoward
   , ArrowRight} from './styles';
 
 type HeroSectionProps ={
-    loginUrl: string;
+    spotifyApi: ISpotify;
 }
-const HeroSection: React.FC<HeroSectionProps> = ({loginUrl}) => {
+const HeroSection: React.FC<HeroSectionProps> = ({spotifyApi}) => {
   const [hover, setHover] = useState(false);
-  console.log(loginUrl);
+  // console.log(loginUrl);
 
   const onHover = () =>{
     setHover(!hover);
@@ -28,12 +29,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({loginUrl}) => {
         Create randomly generated spotify playlists from your favorite genre
         </HeroP>
         <HeroBtnWrapper>
-          <Button to={{pathname: loginUrl}}
-            target="_blank"
-            onMouseEnter={onHover}
-            onMouseLeave={onHover}
-            primary='true'
-            dark='true'
+          <Button onClick = {()=>{
+            spotifyApi.login();
+          }}
+          target="_blank"
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
+          primary='true'
+          dark='true'
           >
                 Get Started {hover ? <ArrowRight/>:<ArrowFoward/>}
           </Button>

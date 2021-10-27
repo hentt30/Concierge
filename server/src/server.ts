@@ -3,8 +3,18 @@ import cors from 'cors';
 import axios from 'axios';
 import querystring from 'query-string';
 import cookieParser from 'cookie-parser';
+// import cookieParser from 'cookie-parser';
 
 const app = express();
+app.use(cors(
+    {
+      origin: ['http://localhost:3000', 'https://accounts.spotify.com'],
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      preflightContinue: false,
+      optionsSuccessStatus: 200,
+      credentials: true,
+    },
+)).use(cookieParser());
 const clientid = process.env.CLIENT_ID;
 const clientsecret = process.env.CLIENT_SECRET;
 const redirecturi = process.env.REDIRECT_URI;
@@ -27,8 +37,6 @@ const generateRandomString = function(length: number) {
 };
 
 const stateKey = 'spotify_auth_state';
-
-app.use(cors()).use(cookieParser());
 
 app.get('/signin', (request, response,
 )=>{
