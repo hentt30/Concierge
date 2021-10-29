@@ -5,7 +5,6 @@ const Login: React.FC = ()=>{
   const spotifyApi:ISpotify = new Spotify();
   const loginUrl:string = spotifyApi.getUrl();
   console.log(loginUrl);
-  window.open(loginUrl, '_blank');
   return (
     <>
     </>

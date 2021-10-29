@@ -41,9 +41,10 @@ const stateKey = 'spotify_auth_state';
 app.get('/signin', (request, response,
 )=>{
   console.log('trying sign in');
+  console.log(clientsecret);
   const state = generateRandomString(16);
-  response.cookie(stateKey, state);
 
+  response.cookie(stateKey, state);
   const scope = 'user-read-private user-read-email';
   response.redirect('https://accounts.spotify.com/authorize?' +
       querystring.stringify({
@@ -61,9 +62,9 @@ app.get('/logged', function(req, res) {
 
   const code = req.query.code || null;
   const state = req.query.state || null;
-  const storedState = req.cookies ? req.cookies[stateKey] : null;
+  // const storedState = req.cookies ? req.cookies[stateKey] : null;
 
-  if (state === null || state !== storedState) {
+  if (state === null) {
     res.redirect('/#' +
         querystring.stringify({
           error: 'state_mismatch',
@@ -101,7 +102,7 @@ app.get('/logged', function(req, res) {
           }
         }, (error) => {
           console.log('error ):');
-          // console.log(error);
+          //    console.log(error);
         });
   }
 });

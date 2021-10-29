@@ -42,7 +42,7 @@ const Navbar: React.FC<NavBarProps> = ({toggle, spotifyApi}) => {
             <NavBtnLink onClick ={()=>{
               spotifyApi.login();
             }}
-            target="_blank">
+            target="/">
               <SpotifyIcon>
                 <FaSpotify/>
               </SpotifyIcon>

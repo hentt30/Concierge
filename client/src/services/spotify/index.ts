@@ -1,4 +1,4 @@
-
+import querystring from 'query-string';
 
 // Service for spotify
 export interface ISpotify
@@ -31,10 +31,39 @@ export class Spotify implements ISpotify {
       this.backendUrl = process.env.REACT_APP_BACKEND_URL;
     }
 
-    public getUrl(): string {
+    /**
+     * Generates a random string containing numbers and letters
+     * @param  {number} length The length of the string
+     * @return {string} The generated string
+     */
+    public generateRandomString(length: number): string {
+      let text = '';
+      const possible =
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+      for (let i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+      return text;
+    }
+
+    public getUrlStitch(): string {
       const loginUrl = `${this.authEndpoint}?client_id=${this.clientId}&resp
       onse_type=code&redirect_uri=${this.redirectUri}&scope=
       ${this.scopes.join('%20')}&response_type=token&show_dialog=true`;
+
+      return loginUrl;
+    }
+
+    public getUrl(): string {
+      const loginUrl = 'https://accounts.spotify.com/authorize?' +
+          querystring.stringify({
+            response_type: 'code',
+            client_id: this.clientId,
+            scope: this.scopes,
+            redirect_uri: this.redirectUri,
+            state: this.generateRandomString(16),
+          });
 
       return loginUrl;
     }
