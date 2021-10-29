@@ -3,7 +3,6 @@ import cors from 'cors';
 import axios from 'axios';
 import querystring from 'query-string';
 import cookieParser from 'cookie-parser';
-// import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(cors(
