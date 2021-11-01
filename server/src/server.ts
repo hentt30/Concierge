@@ -1,10 +1,16 @@
 import express from 'express';
 import cors from 'cors';
-import axios from 'axios';
+// import axios from 'axios';
 import querystring from 'query-string';
 import cookieParser from 'cookie-parser';
+import SpotifyWebApi from 'spotify-web-api-node';
+
 
 const app = express();
+app.use(express.urlencoded({extended: true}));
+
+// parse application/json
+app.use(express.json());
 app.use(cors(
     {
       origin: ['http://localhost:3000', 'https://accounts.spotify.com'],
@@ -18,12 +24,16 @@ const clientid = process.env.CLIENT_ID;
 const clientsecret = process.env.CLIENT_SECRET;
 const redirecturi = process.env.REDIRECT_URI;
 
+const spotifyApi = new SpotifyWebApi({
+  clientId: clientid,
+  clientSecret: clientsecret,
+  redirectUri: redirecturi,
+});
 
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
- * @return {string} The generated string
- */
+ * @return {string} The generated string*/
 const generateRandomString = function(length: number) {
   let text = '';
   const possible =
@@ -54,55 +64,24 @@ app.get('/signin', (request, response,
       }));
 });
 
-app.get('/logged', function(req, res) {
+app.post('/login', async (req, res) => {
   // your application requests refresh and access tokens
   // after checking the state parameter
+  try {
+    console.log(req.body);
+    const token = req.body.token;
+    spotifyApi.setAccessToken(token);
+    const response = await spotifyApi.getMe();
+    console.log(response);
+    // get spotify id
+    // get spotify id
 
-  const code = req.query.code || null;
-  const state = req.query.state || null;
-  const storedState = req.cookies ? req.cookies[stateKey] : null;
-
-  if (state === null || state !== storedState) {
-    res.redirect('/#' +
-        querystring.stringify({
-          error: 'state_mismatch',
-        }));
-  } else {
-    res.clearCookie(stateKey);
-
-    const postData = querystring.stringify({
-      grant_type: 'authorization_code',
-      redirect_uri: redirecturi,
-      code: code,
-    });
-
-    const postOptions = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization':
-                'Basic ' +
-                Buffer.from(clientid + ':' + clientsecret).toString('base64'),
-      },
-    };
-
-    axios.post('https://accounts.spotify.com/api/token', postData, postOptions)
-        .then((response) => {
-          if (response.status === 200) {
-            // @ts-ignore
-            const accessToken = response.data.access_token;
-            // const refreshToken = response.data.refresh_token;
-            console.log(accessToken);
-            axios.get('https://api.spotify.com/v1/me', {
-              headers: {'Authorization': 'Bearer ' + accessToken},
-            }).then((response) => {
-              res.json(response.data);
-            });
-          }
-        }, (error) => {
-          console.log('error ):');
-          // console.log(error);
-        });
+    res.status(200).send({token, userId: '123'});
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({error: 'Login falho'});
   }
-});
+},
+);
 
 app.listen(5000);
