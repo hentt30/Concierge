@@ -6,12 +6,12 @@ export const homeObjOne = {
   lightBg: true,
   lightText: false,
   topline: 'About us',
-  headline: `Our duty is to make more people
+  headline: `Our duty is to make people
    come out of their bubbles and discover new music.`,
   description: `We are a team of university students
-   committed to good musical taste. For this, using
+   committed to variaty on musical taste. For this, using
    the software engineering discipline, we decided
-    to create a platform on which we could achieve our goals..`,
+    to create a platform on which we could achieve our goals.`,
   buttonLabel: 'Get started',
   imgStart: false,
   img: img,
@@ -45,7 +45,7 @@ export const homeObjThree = {
   description: `From this genre, the concierge platform manages to
    generate automatic playlists with just one click.
     After that, these playlists are saved, and the user
-     can study them whenever he wants..`,
+     can hear them whenever he wants.`,
   buttonLabel: 'Get started',
   imgStart: false,
   img: img3,
