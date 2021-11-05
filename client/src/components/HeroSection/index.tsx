@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({spotifyApi}) => {
         Create randomly generated spotify playlists from your favorite genre
         </HeroP>
         <HeroBtnWrapper>
-          <Button onClick = {()=>{
+          <Button to="" onClick = {()=>{
             spotifyApi.login();
           }}
           target="_blank"

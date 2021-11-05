@@ -27,6 +27,7 @@ export class Spotify implements ISpotify {
         'streaming',
         'user-read-email',
         'user-read-private',
+        'user-top-read', 'user-follow-read',
       ];
       this.backendUrl = process.env.REACT_APP_BACKEND_URL;
     }

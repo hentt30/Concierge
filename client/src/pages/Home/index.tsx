@@ -20,7 +20,7 @@ const Home: React.FC = ()=>{
 
   return (
     <div>
-      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      <Sidebar isOpen={isOpen} toggle={toggle} spotifyApi={spotifyApi}/>
       <NavBar toggle={toggle} spotifyApi={spotifyApi}/>
       <HeroSection spotifyApi={spotifyApi}/>
       <InfoSection {...homeObjOne}/>

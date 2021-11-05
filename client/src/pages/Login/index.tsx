@@ -3,12 +3,9 @@ import {SpotifyAuth} from 'react-spotify-auth';
 import {Redirect} from 'react-router-dom';
 import Cookies from 'js-cookie';
 const Login: React.FC = ()=>{
-  /* const spotifyApi:ISpotify = new Spotify();
-  const loginUrl:string = spotifyApi.getUrl();
-  console.log(loginUrl);
-  window.open(loginUrl, '_blank');*/
   const [token, setToken] =useState();
   const [error, setError] = useState(false);
+
 
   useEffect(()=> {
     if (token) {
@@ -33,7 +30,7 @@ const Login: React.FC = ()=>{
         setError(true);
       });
     }
-  });
+  }, []);
 
   if (error) {
     Cookies.remove('token');
