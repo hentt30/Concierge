@@ -3,10 +3,10 @@ import {Link as LinkR} from 'react-router-dom';
 
 export const Nav = styled.nav`
     background: #000;
-    margin-top:0px;
+    margin: 0px;
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size:1rem;
     position:sticky;
@@ -16,6 +16,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavbarContainer = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +24,6 @@ export const NavbarContainer = styled.div`
     z-index:1;
     width: 100%;
     padding: 0 24px;
-    max-width: 1300px;
 
 `;
 

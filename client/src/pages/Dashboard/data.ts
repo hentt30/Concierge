@@ -1,42 +1,36 @@
 export const columns = [
-  {field: 'id', headerName: 'ID', width: 90},
+
+  {field: 'id', headerName: 'Id', width: 150},
   {
-    field: 'firstName',
-    headerName: 'First name',
+    field: 'name',
+    headerName: 'Name',
     width: 150,
-    editable: true,
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
+    field: 'genre',
+    headerName: 'Genre',
     width: 150,
-    editable: true,
   },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: true,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params):string =>
-      `${params.getValue(params.id, 'firstName') || ''} ${
-        params.getValue(params.id, 'lastName') || ''
-      }`,
+    field: 'link',
+    headerName: 'Link',
+    width: 150,
   },
 ];
 
 export const rows = [
-  {id: 1, lastName: 'Snow', firstName: 'Jon', age: 35},
-  {id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42},
-  {id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45},
-  {id: 4, lastName: 'Stark', firstName: 'Arya', age: 16},
-  {id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 30},
+  {id: 1, name: 'my1', genre: 'Gospel', link: '123'},
+  {id: 2, name: 'my2', genre: 'Gospel', link: '123'},
+  {id: 3, name: 'my3', genre: 'Gospel', link: '123'},
+  {id: 4, name: 'my4', genre: 'Gospel', link: '123'},
+  {id: 5, name: 'my5', genre: 'Gospel', link: '123'},
+  {id: 6, name: 'my6', genre: 'Gospel', link: '123'},
+  {id: 7, name: 'my7', genre: 'Gospel', link: '123'},
+  {id: 9, name: 'my8', genre: 'Gospel', link: '123'},
+  {id: 10, name: 'my9', genre: 'Gospel', link: '123'},
+  {id: 11, name: 'my10', genre: 'Gospel', link: '123'},
+  {id: 12, name: 'my11', genre: 'Gospel', link: '123'},
+  {id: 13, name: 'my12', genre: 'Gospel', link: '123'},
+  {id: 14, name: 'my13', genre: 'Gospel', link: '123'},
 ];
 

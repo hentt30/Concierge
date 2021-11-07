@@ -30,7 +30,7 @@ const Login: React.FC = ()=>{
         setError(true);
       });
     }
-  }, []);
+  }, [token]);
 
   if (error) {
     Cookies.remove('token');
