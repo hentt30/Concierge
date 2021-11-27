@@ -9,12 +9,14 @@ export const checkJwt = async (req, res: Response,
   const token = <string>req.header('Authorization').replace('Bearer ', '');
   let jwtPayload;
 
+
   // Try to validate the token and get data
   try {
     jwtPayload = <any>jwt.verify(token, <string>process.env.JWTSECRET);
     res.locals.jwtPayload = jwtPayload;
   } catch (error) {
     // If token is not valid, respond with 401 (unauthorized)
+    console.log(error);
     res.status(401).send();
     return;
   }
@@ -28,6 +30,7 @@ export const checkJwt = async (req, res: Response,
 
     req.user = user;
   } catch (error) {
+    console.log(error);
     res.status(401).send();
     return;
   }

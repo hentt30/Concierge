@@ -8,7 +8,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import RDialog from '../../components/RDialog';
 import Cookies from 'js-cookie';
-import {Redirect} from 'react-router-dom';
+import {CircularProgress} from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard: React.FC = ()=>{
   const classes = useStyles();
   const [playlists, setplaylists] = useState([]);
-  const [error, seterror] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + '/playlist/getAll', {
       method: 'GET',
@@ -51,19 +52,10 @@ const Dashboard: React.FC = ()=>{
       setplaylists(json.playlists);
     }).catch((error) =>{
       console.log(error);
-      seterror(true);
+      setLoaded(!loaded);
     });
-  }, []);
+  }, [loaded]);
 
-  if (error) {
-    Cookies.remove('token');
-    Cookies.remove('apiToken');
-    return (
-      <div>
-        <Redirect to='/'/>
-      </div>
-    );
-  }
 
   return (
     <div className={classes.root}>
@@ -74,7 +66,7 @@ const Dashboard: React.FC = ()=>{
           <Typography variant="h6" component="h2" color="primary">
             Playlists
           </Typography>
-          <RDialog />
+          <RDialog/>
         </div>
         <div style={{height: 400, width: '100%'}}>
           <Table rowsData={playlists} columnsData={columns}/>

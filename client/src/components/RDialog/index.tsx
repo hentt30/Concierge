@@ -10,6 +10,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {MenuItem} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import {useTheme} from '@material-ui/core/styles';
+import Cookies from 'js-cookie';
 const genresD = [
   'acoustic',
   'afrobeat',
@@ -148,17 +149,51 @@ const RDialog:React.FC = ()=> {
 
   const [genres] = useState(genresD);
   const [genre, setGenre] = useState('');
+  const [name, setName] = useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  const handleChangeName = (event)=>{
+    setName(event.target.value);
+  };
+
   const handleClose = () => {
+    if (genre === '' || name === '') {
+      setOpen(false); return;
+    }
+    fetch(process.env.REACT_APP_BACKEND_URL + '/playlist/create', {
+      method: 'POST',
+      body: JSON.stringify(
+          {
+            spotifyToken: Cookies.get('token'),
+            name: name,
+            genre: genre,
+          },
+      ),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer '+ Cookies.get('apiToken'),
+      },
+    }).then((response) =>{
+      console.log(response);
+      if (response.status !== 201) {
+        throw new Error('Playlist não gerada');
+      }
+    }).catch((error) =>{
+      console.log(error);
+      Cookies.remove('token');
+      Cookies.remove('apiToken');
+      window.location.href ='/';
+    });
     setOpen(false);
   };
   const handleChange = (event) => {
     setGenre(event.target.value);
   };
+
 
   return (
     <div>
@@ -187,7 +222,10 @@ const RDialog:React.FC = ()=> {
               'flexDirection': 'column',
             }}
           >
-            <TextField id="outlined-basic" label="Nome" variant="outlined" />
+            <TextField id="outlined-basic" label="Nome"
+              onChange={handleChangeName}
+              value = {name}
+              variant="outlined" />
             <TextField
               id="outlined-select-currency"
               margin="normal"

@@ -4,7 +4,6 @@ import {Redirect} from 'react-router-dom';
 import Cookies from 'js-cookie';
 const Login: React.FC = ()=>{
   const [token, setToken] =useState();
-  const [error, setError] = useState(false);
 
 
   useEffect(()=> {
@@ -21,26 +20,27 @@ const Login: React.FC = ()=>{
           'Accept': 'application/json',
         },
       }).then(
-          (response) => response.json(),
+          (response) => {
+            if (response.status != 200) {
+              throw new Error('Login Falhou');
+            }
+            return response.json();
+          },
       ).then((json) =>{
         Cookies.set('apiToken', json.token);
         Cookies.set('token', token);
+        return Promise.resolve();
       }).catch((error) =>{
         console.log(error);
-        setError(true);
+        console.log(error);
+        Cookies.remove('token');
+        Cookies.remove('apiToken');
+        window.location.href ='/';
       });
     }
   }, [token]);
 
-  if (error) {
-    Cookies.remove('token');
-    Cookies.remove('apiToken');
-    return (
-      <div>
-        <Redirect to='/'/>
-      </div>
-    );
-  }
+
   return (
     <div>
       {token ? (

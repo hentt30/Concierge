@@ -18,7 +18,8 @@ class PlaylistController {
         redirectUri: process.env.REDIRECT_URI,
       });
 
-      const {spotifyToken, playlistName, genre} = req.body;
+      const {spotifyToken, name, genre} = req.body;
+      const playlistName = name;
       spotifyApi.setAccessToken(spotifyToken);
       // Create a private playlist
 

@@ -49,7 +49,7 @@ class AuthController {
       );
 
       // Send the jwt in the response
-      res.send({token});
+      res.status(200).send({token});
     } catch (error) {
       res.status(500).send({message: 'Falhou'});
     }

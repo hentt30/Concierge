@@ -10,8 +10,8 @@ const Dashbar : React.FC = () => {
   const [logout, setLogout] = useState(false);
 
   if (logout) {
-    Cookies.clear('userId');
-    Cookies.clear('token');
+    Cookies.remove('apiToken');
+    Cookies.remove('token');
     return (
       <Redirect to="/"/>
     );
@@ -25,7 +25,6 @@ const Dashbar : React.FC = () => {
           <FaBars />
           <NavBtn>
             <NavBtnLink
-              to=''
               onClick = {()=>{
                 setLogout(true);
               }}>
