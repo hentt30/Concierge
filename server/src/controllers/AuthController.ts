@@ -35,7 +35,6 @@ class AuthController {
 
       // Criar usuário se não existir
       if (!user) {
-        console.log('wssdd');
         user = new User();
         user.spotifyId = spotifyId;
         await userRepository.save(user);

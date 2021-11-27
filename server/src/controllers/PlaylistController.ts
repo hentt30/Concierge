@@ -60,9 +60,11 @@ class PlaylistController {
       const playlistRepository = getRepository(Playlist);
       const playlists = await playlistRepository.find({
         where: {userId: spotifyUserId}});
+      let id = 1;
       const arrayP = Array.from(playlists, (e)=>{
         const {genre, link, name} = e;
-        const p = {genre, name, link}; return p;
+        const p = {genre, name,
+          link, id}; id+= 1; return p;
       });
       res.status(200).send({playlists: arrayP});
     } catch (error) {

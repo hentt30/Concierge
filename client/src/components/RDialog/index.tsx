@@ -33,6 +33,7 @@ const RDialog:React.FC = ()=> {
       >
             New Playlist
       </Button>
+
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -40,7 +41,7 @@ const RDialog:React.FC = ()=> {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {'Use Google\'s location service?'}
+          {'Crie uma nova playlist'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -58,6 +59,7 @@ const RDialog:React.FC = ()=> {
           </Button>
         </DialogActions>
       </Dialog>
+
     </div>
   );
 };

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Dashbar from '../../components/Dashbar';
 import Table from '../../components/Table';
-import {rows, columns} from './data';
+import {columns} from './data';
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import RDialog from '../../components/RDialog';
+import Cookies from 'js-cookie';
+import {Redirect} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +35,35 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard: React.FC = ()=>{
   const classes = useStyles();
+  const [playlists, setplaylists] = useState([]);
+  const [error, seterror] = useState(false);
+  useEffect(() => {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/playlist/getAll', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer '+ Cookies.get('apiToken'),
+      },
+    }).then(
+        (response) => response.json(),
+    ).then((json) =>{
+      setplaylists(json.playlists);
+    }).catch((error) =>{
+      console.log(error);
+      seterror(true);
+    });
+  }, []);
 
+  if (error) {
+    Cookies.remove('token');
+    Cookies.remove('apiToken');
+    return (
+      <div>
+        <Redirect to='/'/>
+      </div>
+    );
+  }
 
   return (
     <div className={classes.root}>
@@ -47,7 +77,7 @@ const Dashboard: React.FC = ()=>{
           <RDialog />
         </div>
         <div style={{height: 400, width: '100%'}}>
-          <Table rowsData={rows} columnsData={columns}/>
+          <Table rowsData={playlists} columnsData={columns}/>
         </div>
       </Paper>
     </div>

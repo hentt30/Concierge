@@ -9,7 +9,7 @@ const Login: React.FC = ()=>{
 
   useEffect(()=> {
     if (token) {
-      fetch(process.env.REACT_APP_BACKEND_URL + '/login', {
+      fetch(process.env.REACT_APP_BACKEND_URL + '/auth/login', {
         method: 'POST',
         body: JSON.stringify(
             {
@@ -23,7 +23,7 @@ const Login: React.FC = ()=>{
       }).then(
           (response) => response.json(),
       ).then((json) =>{
-        Cookies.set('userId', json.UserId);
+        Cookies.set('apiToken', json.token);
         Cookies.set('token', token);
       }).catch((error) =>{
         console.log(error);
@@ -34,7 +34,7 @@ const Login: React.FC = ()=>{
 
   if (error) {
     Cookies.remove('token');
-    Cookies.remove('userId');
+    Cookies.remove('apiToken');
     return (
       <div>
         <Redirect to='/'/>
