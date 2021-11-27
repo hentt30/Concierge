@@ -51,7 +51,9 @@ const Login: React.FC = ()=>{
           redirectUri={process.env.REACT_APP_REDIRECT_URI}
           clientID={process.env.REACT_APP_CLIENT_ID}
           scopes={['user-read-private', 'user-read-email',
-            'user-top-read', 'user-follow-read']}
+            'user-top-read', 'user-follow-read', 'playlist-modify-private',
+            'playlist-read-collaborative', 'playlist-read-private',
+            'playlist-modify-public']}
           onAccessToken={(token) => setToken(token)}
         />
       )}

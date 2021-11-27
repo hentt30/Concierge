@@ -23,12 +23,10 @@ export class Spotify implements ISpotify {
       this.authEndpoint = process.env.REACT_APP_AUTH_ENDPOINT;
       this.redirectUri = process.env.REACT_APP_REDIRECT_URI;
       this.clientId = process.env.REACT_APP_CLIENT_ID;
-      this.scopes = [
-        'streaming',
-        'user-read-email',
-        'user-read-private',
-        'user-top-read', 'user-follow-read',
-      ];
+      this.scopes = ['user-read-private', 'user-read-email',
+        'user-top-read', 'user-follow-read', 'playlist-modify-private',
+        'playlist-read-collaborative', 'playlist-read-private',
+        'playlist-modify-public'];
       this.backendUrl = process.env.REACT_APP_BACKEND_URL;
     }
 
