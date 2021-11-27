@@ -3,11 +3,142 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import {TextField} from '@material-ui/core';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {MenuItem} from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import {useTheme} from '@material-ui/core/styles';
+const genresD = [
+  'acoustic',
+  'afrobeat',
+  'alt-rock',
+  'alternative',
+  'ambient',
+  'anime',
+  'black-metal',
+  'bluegrass',
+  'blues',
+  'bossanova',
+  'brazil',
+  'breakbeat',
+  'british',
+  'cantopop',
+  'chicago-house',
+  'children',
+  'chill',
+  'classical',
+  'club',
+  'comedy',
+  'country',
+  'dance',
+  'dancehall',
+  'death-metal',
+  'deep-house',
+  'detroit-techno',
+  'disco',
+  'disney',
+  'drum-and-bass',
+  'dub',
+  'dubstep',
+  'edm',
+  'electro',
+  'electronic',
+  'emo',
+  'folk',
+  'forro',
+  'french',
+  'funk',
+  'garage',
+  'german',
+  'gospel',
+  'goth',
+  'grindcore',
+  'groove',
+  'grunge',
+  'guitar',
+  'happy',
+  'hard-rock',
+  'hardcore',
+  'hardstyle',
+  'heavy-metal',
+  'hip-hop',
+  'holidays',
+  'honky-tonk',
+  'house',
+  'idm',
+  'indian',
+  'indie',
+  'indie-pop',
+  'industrial',
+  'iranian',
+  'j-dance',
+  'j-idol',
+  'j-pop',
+  'j-rock',
+  'jazz',
+  'k-pop',
+  'kids',
+  'latin',
+  'latino',
+  'malay',
+  'mandopop',
+  'metal',
+  'metal-misc',
+  'metalcore',
+  'minimal-techno',
+  'movies',
+  'mpb',
+  'new-age',
+  'new-release',
+  'opera',
+  'pagode',
+  'party',
+  'philippines-opm',
+  'piano',
+  'pop',
+  'pop-film',
+  'post-dubstep',
+  'power-pop',
+  'progressive-house',
+  'psych-rock',
+  'punk',
+  'punk-rock',
+  'r-n-b',
+  'rainy-day',
+  'reggae',
+  'reggaeton',
+  'road-trip',
+  'rock',
+  'rock-n-roll',
+  'rockabilly',
+  'romance',
+  'sad',
+  'salsa',
+  'samba',
+  'sertanejo',
+  'show-tunes',
+  'singer-songwriter',
+  'ska',
+  'sleep',
+  'songwriter',
+  'soul',
+  'soundtracks',
+  'spanish',
+  'study',
+  'summer',
+  'swedish',
+  'synth-pop',
+  'tango',
+  'techno',
+  'trance',
+  'trip-hop',
+  'turkish',
+  'work-out',
+  'world-music',
+];
+
 
 const RDialog:React.FC = ()=> {
   const theme = useTheme();
@@ -15,12 +146,18 @@ const RDialog:React.FC = ()=> {
 
   const [open, setOpen] = useState(false);
 
+  const [genres] = useState(genresD);
+  const [genre, setGenre] = useState('');
+
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleChange = (event) => {
+    setGenre(event.target.value);
   };
 
   return (
@@ -44,18 +181,32 @@ const RDialog:React.FC = ()=> {
           {'Crie uma nova playlist'}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Let Google help apps determine location.
-            This means sending anonymous
-            location data to Google, even when no apps are running.
-          </DialogContentText>
+          <Box
+            sx={{
+              'display': 'flex',
+              'flexDirection': 'column',
+            }}
+          >
+            <TextField id="outlined-basic" label="Nome" variant="outlined" />
+            <TextField
+              id="outlined-select-currency"
+              margin="normal"
+              select
+              label="Selecione o gênero"
+              value={genre}
+              onChange={handleChange}
+            >
+              {genres.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Box>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Disagree
-          </Button>
           <Button onClick={handleClose} autoFocus>
-            Agree
+            Create
           </Button>
         </DialogActions>
       </Dialog>
