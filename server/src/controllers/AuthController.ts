@@ -46,7 +46,7 @@ class AuthController {
       const token = jwt.sign(
           {spotifyId: user.spotifyId},
          <string>process.env.JWTSECRET,
-         {expiresIn: '24h'},
+         {expiresIn: '1h'},
       );
 
       // Send the jwt in the response

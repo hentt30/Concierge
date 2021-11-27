@@ -2,19 +2,25 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Unique,
   CreateDateColumn,
 } from 'typeorm';
 
 @Entity()
-@Unique(['spotifyId'])
-export class User {
+export class Playlist {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  spotifyId: string;
+  userId: string;
 
+  @Column()
+  name: string;
+
+  @Column()
+  genre: string;
+
+  @Column()
+  link: string;
 
   @Column()
   @CreateDateColumn()

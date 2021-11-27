@@ -1,9 +1,12 @@
-import {Request, Response, NextFunction} from 'express';
+import {Response, NextFunction} from 'express';
 import * as jwt from 'jsonwebtoken';
+import {User} from '../entity/user';
+import {getRepository} from 'typeorm';
 
-export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
+export const checkJwt = async (req, res: Response,
+    next: NextFunction) => {
   // Get the jwt token from the head
-  const token = <string>req.headers['auth'];
+  const token = <string>req.header('Authorization').replace('Bearer ', '');
   let jwtPayload;
 
   // Try to validate the token and get data
@@ -18,12 +21,16 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
   // The token is valid for 1 hour
   // We want to send a new token on every request
-  const {spotifyId} = jwtPayload;
-  const newToken = jwt.sign({spotifyId}, <string>process.env.JWTSECRET, {
-    expiresIn: '24h',
-  });
-  res.setHeader('token', newToken);
+  try {
+    const userRepository = getRepository(User);
+    const {spotifyId} = jwtPayload;
+    const user = await userRepository.findOneOrFail({where: {spotifyId}});
 
+    req.user = user;
+  } catch (error) {
+    res.status(401).send();
+    return;
+  }
   // Call the next middleware or controller
   next();
 };
