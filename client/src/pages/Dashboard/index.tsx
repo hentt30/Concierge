@@ -8,8 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import RDialog from '../../components/RDialog';
 import Cookies from 'js-cookie';
-import {CircularProgress} from '@material-ui/core';
-import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +54,10 @@ const Dashboard: React.FC = ()=>{
     });
   }, [loaded]);
 
+  function handleNewPlaylist() {
+    setLoaded(!loaded);
+  }
+
 
   return (
     <div className={classes.root}>
@@ -66,7 +68,7 @@ const Dashboard: React.FC = ()=>{
           <Typography variant="h6" component="h2" color="primary">
             Playlists
           </Typography>
-          <RDialog/>
+          <RDialog onNew={handleNewPlaylist}/>
         </div>
         <div style={{height: 400, width: '100%'}}>
           <Table rowsData={playlists} columnsData={columns}/>

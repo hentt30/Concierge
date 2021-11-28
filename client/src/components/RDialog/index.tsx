@@ -140,8 +140,12 @@ const genresD = [
   'world-music',
 ];
 
+type RDialogProps={
+  onNew():void;
+}
 
-const RDialog:React.FC = ()=> {
+
+const RDialog:React.FC<RDialogProps> = ({onNew})=> {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -182,6 +186,7 @@ const RDialog:React.FC = ()=> {
       if (response.status !== 201) {
         throw new Error('Playlist não gerada');
       }
+      onNew();
     }).catch((error) =>{
       console.log(error);
       Cookies.remove('token');
