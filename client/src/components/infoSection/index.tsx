@@ -45,10 +45,10 @@ const InfoSection: React.FC<InfoSectionProps>= (homeObjOne) => {
                 <Subtitle darkText={darkText}> {description} </Subtitle>
                 <BtnWrapper>
                   <Button to='home'
-                    smooth={true}
+                    smooth={'true'}
                     duration={500}
-                    spy={true}
-                    exact="true"
+                    spy={'true'}
+                    exact={'true'}
                     offset={-80}
                     primary={lightBg? 0:1}
                     dark={lightBg? 0:1}
