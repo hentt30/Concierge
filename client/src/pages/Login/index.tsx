@@ -35,7 +35,8 @@ const Login: React.FC = ()=>{
         console.log(error);
         Cookies.remove('token');
         Cookies.remove('apiToken');
-        window.location.href ='/';
+        /*window.location.href ='/';*/
+
       });
     }
   }, [token]);
