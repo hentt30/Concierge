@@ -57,7 +57,6 @@
     "query-string": "^7.0.1",
     "reflect-metadata": "^0.1.13",
     "spotify-web-api-node": "^5.0.2",
-    "sqlite3": "^5.0.2",
     "typeorm": "^0.2.41"
   }
 }

@@ -8,8 +8,7 @@ import routes from './routes';
 import path from 'path';
 
 
-createConnection()
-    .then(async (connection) => {
+
     // Create a new express application instance
       const app = express();
       app.use(express.static(path.join(__dirname, '../../client/build')));
@@ -39,7 +38,6 @@ createConnection()
       app.listen(process.env.PORT , () => {
         console.log('Server started on port 5000!');
       });
-    })
-    .catch((error) => console.log(error));
+   
 
 
