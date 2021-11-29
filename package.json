@@ -1,0 +1,22 @@
+{
+  "name": "concierge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"cd server && npm install && npm start",
+    "heroku-postbuild":"cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hentt30/Concierge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hentt30/Concierge/issues"
+  },
+  "homepage": "https://github.com/hentt30/Concierge#readme"
+}
