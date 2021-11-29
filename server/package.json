@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify  src/server.ts",
-    "start": "env-cmd -f ./config/dev.env node ./dist/server.js",
+    "start": "cd ./dist && pm2 start ./server.js --no-daemon",
     "test": "jest",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
