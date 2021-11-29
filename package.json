@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/hentt30/Concierge.git"
   },
+  "engines": {
+    "node": "14.17.5"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
