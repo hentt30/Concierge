@@ -33,8 +33,8 @@ const Login: React.FC = ()=>{
       }).catch((error) =>{
         console.log(error);
         console.log(error);
-        Cookies.remove('token');
-        Cookies.remove('apiToken');
+        /*Cookies.remove('token');
+        Cookies.remove('apiToken');*/
         /*window.location.href ='/';*/
 
       });
