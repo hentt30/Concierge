@@ -57,6 +57,7 @@
     "reflect-metadata": "^0.1.13",
     "spotify-web-api-node": "^5.0.2",
     "sqlite3": "^5.0.2",
+     "babel-cli": "^6.6.5",
     "typeorm": "^0.2.41"
   }
 }
