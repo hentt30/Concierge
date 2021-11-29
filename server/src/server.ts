@@ -23,7 +23,7 @@ createConnection()
       // Call midlewares
       app.use(cors(
           {
-            origin: ['http://localhost:3000', 'https://accounts.spotify.com'],
+        origin: ['http://localhost:3000', 'https://accounts.spotify.com','https://concierge412.herokuapp.com'],
             methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
             preflightContinue: false,
             optionsSuccessStatus: 200,
