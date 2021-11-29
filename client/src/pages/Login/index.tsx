@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {SpotifyAuth} from 'react-spotify-auth';
+import SpotifyAuth from '../../components/SpotifyAuth';
 import {Redirect} from 'react-router-dom';
 import Cookies from 'js-cookie';
 const Login: React.FC = ()=>{
-  const [token, setToken] =useState();
+  const [token, setToken] =useState('');
 
 
   useEffect(()=> {
@@ -48,12 +48,6 @@ const Login: React.FC = ()=>{
       ) : (
         // Display the login page
         <SpotifyAuth
-          redirectUri={process.env.REACT_APP_REDIRECT_URI}
-          clientID={process.env.REACT_APP_CLIENT_ID}
-          scopes={['user-read-private', 'user-read-email',
-            'user-top-read', 'user-follow-read', 'playlist-modify-private',
-            'playlist-read-collaborative', 'playlist-read-private',
-            'playlist-modify-public']}
           onAccessToken={(token) => setToken(token)}
         />
       )}
