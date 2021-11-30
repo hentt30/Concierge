@@ -1,7 +1,7 @@
 module.exports = {
    "type": "postgres",
    "url":process.env.DATABASE_URL,
-   "entities": ["dist/**/*.js"],
+   "entities": ["dist/entity/*.js"],
    "migrations": [
       "dist/migration/**/*.js"
    ],
