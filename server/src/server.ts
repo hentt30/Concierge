@@ -1,11 +1,12 @@
+import 'reflect-metadata'
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
-import {createConnection} from 'typeorm';
 import routes from './routes';
 import path from 'path';
+import './database'
 
 
 
