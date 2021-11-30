@@ -39,7 +39,7 @@ const Dashboard: React.FC = ()=>{
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + '/playlist/getAll', {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
