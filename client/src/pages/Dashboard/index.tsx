@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import RDialog from '../../components/RDialog';
 import Cookies from 'js-cookie';
+import { idText } from 'typescript';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,10 @@ const Dashboard: React.FC = ()=>{
         'Authorization': 'Bearer '+ Cookies.get('apiToken'),
       },
     }).then(
-        (response) => response.json(),
+        (response) => {
+            console.log(response);
+            return response.json();
+        },
     ).then((json) =>{
     if(json.status ===  '200'){
       setplaylists(json.playlists);
