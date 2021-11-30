@@ -67,6 +67,7 @@ class PlaylistController {
         const p = {genre, name,
           link, id}; id+= 1; return p;
       });
+      console.log(arrayP)
       res.status(200).send({playlists: arrayP});
     } catch (error) {
       console.log(error);

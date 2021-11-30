@@ -5,5 +5,5 @@ import PlaylistController from '../controllers/PlaylistController';
 const router = Router();
 // Login route
 router.post('/create', [checkJwt], PlaylistController.createNewPlaylist);
-router.get('/getAll', [checkJwt], PlaylistController.getAllPlaylists);
+router.get('/allplay', [checkJwt], PlaylistController.getAllPlaylists);
 export default router;
