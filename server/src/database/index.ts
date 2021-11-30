@@ -8,5 +8,6 @@ createConnection(
     synchronize: true,
     extra: {
       ssl: true,
+      rejectUnauthorized: false,
     },
   });
