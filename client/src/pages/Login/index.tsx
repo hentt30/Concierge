@@ -21,7 +21,7 @@ const Login: React.FC = ()=>{
         },
       }).then(
           (response) => {
-            if (response.status != 200) {
+            if (response.status != 200 && response.status != 304) {
               throw new Error('Login Falhou');
             }
             return response.json();
@@ -33,9 +33,9 @@ const Login: React.FC = ()=>{
       }).catch((error) =>{
         console.log(error);
         console.log(error);
-        /*Cookies.remove('token');
-        Cookies.remove('apiToken');*/
-        /*window.location.href ='/';*/
+        Cookies.remove('token');
+        Cookies.remove('apiToken');
+        window.location.href ='/';
 
       });
     }
