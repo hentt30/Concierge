@@ -51,6 +51,7 @@ const Dashboard: React.FC = ()=>{
             return response.json();
         },
     ).then((json) =>{
+    console.log(json);
     if(json.status ===  '200'){
       setplaylists(json.playlists);
     }
