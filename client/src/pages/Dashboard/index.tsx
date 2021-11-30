@@ -49,6 +49,7 @@ const Dashboard: React.FC = ()=>{
         (response) => {
         try{
             const a = response.json();
+            console.log(a);
             return a;
         }catch(error)
         {
