@@ -47,8 +47,10 @@ const Dashboard: React.FC = ()=>{
       },
     }).then(
         (response) => {
-            console.log(response);
-            return response.json();
+            if(response.body.constructor === Object && Object.keys(response.body).length === 0) {
+  console.log('Object missing');
+    } else{
+            return response.json();}
         },
     ).then((json) =>{
     console.log(json);
