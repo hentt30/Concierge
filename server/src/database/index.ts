@@ -6,8 +6,7 @@ createConnection(
     type: 'postgres',
     entities: [ "{dist,src}/entity/*{.js,.ts}"],
     synchronize: true,
-    extra: {
-      ssl: true,
+    ssl: {  
       rejectUnauthorized: false,
     },
   });
