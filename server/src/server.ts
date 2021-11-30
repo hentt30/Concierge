@@ -6,6 +6,8 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import routes from './routes';
 import path from 'path';
+import { User } from './entity/user';
+import { Playlist } from './entity/paylist';
 
 import { getConnectionOptions, ConnectionOptions, createConnection } from 'typeorm';
 import dotenv from 'dotenv';
@@ -20,7 +22,7 @@ const getOptions = async () => {
     extra: {
       ssl: true,
     },
-    entities: ['dist/entity/*.*'],
+    entities: [User,Playlist],
   };
   if (process.env.DATABASE_URL) {
     Object.assign(connectionOptions, { url: process.env.DATABASE_URL });
