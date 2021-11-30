@@ -17,8 +17,8 @@ const getOptions = async () => {
   let connectionOptions: ConnectionOptions;
   connectionOptions = {
     type: 'postgres',
-    synchronize: true,
-    logging: true,
+    synchronize: false,
+    logging: false,
     extra: {
       ssl: true,
     },
