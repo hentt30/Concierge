@@ -47,15 +47,7 @@ const Dashboard: React.FC = ()=>{
       },
     }).then(
         (response) => {
-        try{
-            const a = response.json();
-            a.resolve();
-            return a;
-        }catch(error)
-        {
-            console.log("Conseguimos");
-        }
-
+        return response.json();
         }
     ).then((json) =>{
     console.log(json);
