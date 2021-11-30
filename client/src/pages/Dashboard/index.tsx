@@ -47,7 +47,9 @@ const Dashboard: React.FC = ()=>{
     }).then(
         (response) => response.json(),
     ).then((json) =>{
+    if(json.status ===  '200'){
       setplaylists(json.playlists);
+    }
     }).catch((error) =>{
       console.log(error);
       setLoaded(!loaded);
