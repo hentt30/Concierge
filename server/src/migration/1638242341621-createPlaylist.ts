@@ -6,7 +6,7 @@ export class createPlaylist1638242341621 implements MigrationInterface {
         await queryRunner.createTable(
         new Table(
             {
-                name:"User",
+                name:"Playlist",
                 columns: [
                     {
                         name:'id',
