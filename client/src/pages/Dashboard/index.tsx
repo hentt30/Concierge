@@ -47,16 +47,18 @@ const Dashboard: React.FC = ()=>{
       },
     }).then(
         (response) => {
-            if(response.body.constructor === Object && Object.keys(response.body).length === 0) {
-  console.log('Object missing');
-    } else{
-            return response.json();}
-        },
+        try{
+            const a = response.json();
+            return a;
+        }catch(error)
+        {
+            console.log("Conseguimos");
+        }
+
+        }
     ).then((json) =>{
     console.log(json);
-    if(json.status ===  '200'){
       setplaylists(json.playlists);
-    }
     }).catch((error) =>{
       console.log(error);
       setLoaded(!loaded);
