@@ -21,7 +21,7 @@ const Login: React.FC = ()=>{
         },
       }).then(
           (response) => {
-            if (response.status != 200 && response.status != 304) {
+            if (response.status !== 200 && response.status !== 304) {
               throw new Error('Login Falhou');
             }
             return response.json();
