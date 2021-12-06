@@ -12,7 +12,7 @@ export const homeObjOne = {
     to create a platform on which we could achieve our goals.`,
   buttonLabel: 'Get started',
   imgStart: false,
-  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/67e138af-7212-46da-8e22-7e54983b0a4c/music.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211129%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211129T195155Z&X-Amz-Expires=86400&X-Amz-Signature=eb973f201a769a6502bd83bd06c98c5b63839c3b74a2e6f051aaa4b99a603cf6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22music.svg%22&x-id=GetObject",
+  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5b12cd94-fc6f-4f7f-82de-44e5269aaa7b/music.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211206%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211206T182750Z&X-Amz-Expires=86400&X-Amz-Signature=a1d15a9375a0756c081db8c097044caa97538f571591bc844402c9124bf3d675&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22music.svg%22&x-id=GetObject",
   alt: 'Music',
   darkText: true,
 };
@@ -28,7 +28,7 @@ export const homeObjTwo = {
   you can find new music and have a fun time.`,
   buttonLabel: 'Get started',
   imgStart: false,
-  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bdb03a85-3688-4891-b96c-7aace00196d7/svg-2.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211129%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211129T195542Z&X-Amz-Expires=86400&X-Amz-Signature=c7c126f5b9940ad3cd9f82ab14876fda422554524da26c8c9173f233962311e0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22svg-2.svg%22&x-id=GetObject",
+  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/391b28fe-de2a-4fea-927d-200f20adb7c3/svg-2.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211206%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211206T182826Z&X-Amz-Expires=86400&X-Amz-Signature=098c5b4bb20a53b21009ebbd0311dd696e2fb6abd178a95cbd09c8baef49ba5b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22svg-2.svg%22&x-id=GetObject",
   alt: 'Music',
   darkText: false,
 };
@@ -46,7 +46,7 @@ export const homeObjThree = {
      can hear them whenever he wants.`,
   buttonLabel: 'Get started',
   imgStart: false,
-  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2e926179-471a-45d9-9afe-aa95c170f0f9/svg-3.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211129%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211129T195618Z&X-Amz-Expires=86400&X-Amz-Signature=ea37c6ea18c42d7483368cc463271faefd9fb348ae2194d7f55920a45e769940&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22svg-3.svg%22&x-id=GetObject",
+  img: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9b38b79f-bc9b-458b-b9f2-2222b11fb193/svg-3.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211206%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211206T182855Z&X-Amz-Expires=86400&X-Amz-Signature=3ecad5a5b9481a496b6f2e073af4a3a559511f1488440f3602cd6c26df47114d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22svg-3.svg%22&x-id=GetObject",
   alt: 'Music',
   darkText: true,
 };

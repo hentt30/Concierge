@@ -6,7 +6,7 @@ import {HeroContainer, HeroBg, VideoBg,
   HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowFoward
   , ArrowRight} from './styles';
 
-const videoSrc = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/45bb965d-9175-461d-9163-bd28383e55bf/video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211129%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211129T195854Z&X-Amz-Expires=86400&X-Amz-Signature=a8d1e6a3ddd7ded5adb646e4bd555d252eb68042fe6ca86dec2426f7c5986734&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22video.mp4%22&x-id=GetObject";
+const videoSrc = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f81a1834-3bca-43b5-bbdb-c15f7251fc86/video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211206%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211206T182906Z&X-Amz-Expires=86400&X-Amz-Signature=d097bdd4095d0eaac90d9918a3bdac36ef6539757da72e3dd787f169ee4fbbec&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22video.mp4%22&x-id=GetObject";
 type HeroSectionProps ={
     spotifyApi: ISpotify;
 }
